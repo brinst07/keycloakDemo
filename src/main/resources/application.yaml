@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/keycloakDemo
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+  cache:
+    type: redis
+    redis:
+      cache-null-values: true
+jwt:
+  auth:
+    converter:
+      resource-id: test
+      principal-attribute: preferred_username
